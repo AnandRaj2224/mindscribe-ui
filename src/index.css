@@ -1,0 +1,74 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Space+Grotesk:wght@300;400;500;600&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* "Ollivere" Paper Aesthetic */
+    --background: 40 20% 97%;    /* #F8F7F4 (Warm Paper) */
+    --foreground: 0 0% 5%;       /* #0D0D0D (Ink Black) */
+
+    /* Cards: Pure White with Ink Borders */
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 5%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 5%;
+
+    /* Brand: Creative Orange (from your logo idea) */
+    --primary: 24 95% 53%;       /* #FA5515 (Vibrant Orange) */
+    --primary-foreground: 0 0% 100%;
+
+    /* Secondary: Raw Gray */
+    --secondary: 0 0% 90%;
+    --secondary-foreground: 0 0% 5%;
+
+    /* Muted */
+    --muted: 40 10% 90%;
+    --muted-foreground: 0 0% 40%;
+
+    /* Borders: THICK & RAW */
+    --border: 0 0% 5%;           /* Black Borders */
+    --input: 0 0% 5%;
+    
+    --radius: 0rem; /* Sharp corners (Brutalist) */
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-family: 'Space Grotesk', sans-serif; /* Clean, modern body */
+  }
+  
+  /* The "Ollivere" Headline Font */
+  h1, h2, h3, h4, .font-serif {
+    font-family: 'Playfair Display', serif;
+  }
+
+  /* Custom Scrollbar */
+  ::-webkit-scrollbar { width: 10px; }
+  ::-webkit-scrollbar-track { @apply bg-transparent; }
+  ::-webkit-scrollbar-thumb { 
+    @apply bg-black border-2 border-[#F8F7F4]; 
+  }
+}
+
+/* ... existing css ... */
+
+@layer utilities {
+  .animate-marquee {
+    display: flex;
+    white-space: nowrap;
+    animation: marquee 25s linear infinite;
+  }
+  
+  @keyframes marquee {
+    0% { transform: translateX(0%); }
+    100% { transform: translateX(-100%); }
+  }
+}
